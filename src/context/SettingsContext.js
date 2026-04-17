@@ -4,7 +4,6 @@ import { createContext, useContext, useState } from "react";
 const SettingsContext = createContext();
 
 export const SettingsProvider = ({ children }) => {
-  // useState-এর ভেতরেই সরাসরি localStorage চেক করা (এটি শুধু প্রথম রেন্ডারে চলে)
   const [arabicFont, setArabicFont] = useState(() => {
     if (typeof window !== "undefined") {
       return localStorage.getItem("arabicFont") || "font-amiri";
@@ -28,13 +27,13 @@ export const SettingsProvider = ({ children }) => {
     return 16;
   });
 
-  // সেটিংস আপডেট এবং সেভ করার ফাংশন
+  // setting update and sever function
   const updateSettings = (key, value) => {
     if (typeof window !== "undefined") {
       localStorage.setItem(key, value);
     }
     
-    // স্টেট আপডেট করা
+    // state update
     if (key === "arabicFont") setArabicFont(value);
     if (key === "arabicSize") setArabicSize(value);
     if (key === "translationSize") setTranslationSize(value);

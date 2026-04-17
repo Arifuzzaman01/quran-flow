@@ -1,4 +1,4 @@
-import { Amiri,  Scheherazade_New } from "next/font/google";
+import { Amiri, Scheherazade_New } from "next/font/google";
 import "./globals.css";
 import Header from "../components/Header";
 import { SettingsProvider } from "@/context/SettingsContext";
@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-     className={` ${amiri.variable} ${scheherazade.variable} h-full antialiased`}
+      className={` ${amiri.variable} ${scheherazade.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col overflow-x-hidden">
         <SettingsProvider>

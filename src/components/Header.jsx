@@ -37,9 +37,9 @@ const Header = () => {
             <Setting />
             
             {/* Mobile Menu Button (Placeholder for functionality) */}
-            <button className="md:hidden p-2 text-gray-600">
+            <div className="md:hidden p-2 text-gray-600">
               <Searchbar />
-            </button>
+            </div>
           </div>
 
         </div>

@@ -17,8 +17,6 @@ export const getAllSurah = async () => {
 };
 
 
-// get surah details by id
-// utils/getSurahDetails.js
 
 export const getSurahDetails = async (chapterNumber) => {
   try {

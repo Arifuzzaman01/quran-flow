@@ -1,6 +1,5 @@
-import { getAllSurah } from '@/utils/getSurah';
-import Link from 'next/link';
-
+import { getAllSurah } from "@/utils/getSurah";
+import Link from "next/link";
 
 export default async function HomePage() {
   const surahs = await getAllSurah();
@@ -11,14 +10,16 @@ export default async function HomePage() {
         {/* Header Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-emerald-800 mb-2">Al-Quran</h1>
-          <p className="text-gray-600">List of all Surahs and their translations</p>
+          <p className="text-gray-600">
+            List of all Surahs and their translations
+          </p>
         </div>
 
         {/* Surah Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {surahs.map((surah) => (
-            <Link 
-              key={surah.id} 
+            <Link
+              key={surah.id}
               href={`/surah/${surah.id}`}
               className="group bg-white p-6 rounded-2xl shadow-sm border border-transparent hover:border-emerald-500 hover:shadow-md transition-all duration-300 flex items-center justify-between"
             >
@@ -27,10 +28,12 @@ export default async function HomePage() {
                 <div className="w-12 h-12 flex items-center justify-center bg-emerald-50 rounded-xl text-emerald-700 font-bold group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
                   {surah.id}
                 </div>
-                
+
                 {/* Name and Translation */}
                 <div>
-                  <h2 className="text-lg font-bold text-gray-800">{surah.transliteration}</h2>
+                  <h2 className="text-lg font-bold text-gray-800">
+                    {surah.transliteration}
+                  </h2>
                   <p className="text-sm text-gray-500">
                     {surah.translation} • {surah.total_verses} Verses
                   </p>

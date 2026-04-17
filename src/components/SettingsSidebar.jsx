@@ -3,14 +3,14 @@ import { useSettings } from "@/context/SettingsContext";
 import { useEffect, useState } from "react";
 
 export default function SettingsSidebar() {
-  const { arabicFont, arabicSize, translationSize, updateSettings } = useSettings();
+  const { arabicFont, arabicSize, translationSize, updateSettings } =
+    useSettings();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  
   if (!mounted) return null;
 
   return (
@@ -19,8 +19,10 @@ export default function SettingsSidebar() {
 
       {/* Font Selection */}
       <div className="mb-6">
-        <label className="block text-sm font-medium mb-2">Select Arabic Font</label>
-        <select 
+        <label className="block text-sm font-medium mb-2">
+          Select Arabic Font
+        </label>
+        <select
           value={arabicFont}
           onChange={(e) => updateSettings("arabicFont", e.target.value)}
           className="w-full border p-2 rounded"
@@ -32,9 +34,13 @@ export default function SettingsSidebar() {
 
       {/* Font Size Sliders */}
       <div className="mb-6">
-        <label className="block text-sm font-medium mb-2">আরবি ফন্ট সাইজ ({arabicSize}px)</label>
-        <input 
-          type="range" min="20" max="60" 
+        <label className="block text-sm font-medium mb-2">
+          Arabic Font Size ({arabicSize}px)
+        </label>
+        <input
+          type="range"
+          min="20"
+          max="60"
           value={arabicSize}
           onChange={(e) => updateSettings("arabicSize", Number(e.target.value))}
           className="w-full h-2 bg-emerald-200 rounded-lg cursor-pointer"
@@ -42,11 +48,17 @@ export default function SettingsSidebar() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium mb-2">অনুবাদ ফন্ট সাইজ ({translationSize}px)</label>
-        <input 
-          type="range" min="14" max="30" 
+        <label className="block text-sm font-medium mb-2">
+          Translation Font size ({translationSize}px)
+        </label>
+        <input
+          type="range"
+          min="14"
+          max="30"
           value={translationSize}
-          onChange={(e) => updateSettings("translationSize", Number(e.target.value))}
+          onChange={(e) =>
+            updateSettings("translationSize", Number(e.target.value))
+          }
           className="w-full h-2 bg-emerald-200 rounded-lg cursor-pointer"
         />
       </div>
