@@ -1,15 +1,18 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Amiri,  Scheherazade_New } from "next/font/google";
 import "./globals.css";
 import Header from "../components/Header";
+import { SettingsProvider } from "@/context/SettingsContext";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const amiri = Amiri({
+  subsets: ["arabic"],
+  weight: ["400", "700"],
+  variable: "--font-amiri",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const scheherazade = Scheherazade_New({
+  subsets: ["arabic"],
+  weight: ["400", "700"],
+  variable: "--font-scheherazade",
 });
 
 export const metadata = {
@@ -21,13 +24,15 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+     className={` ${amiri.variable} ${scheherazade.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <Header />
-        <main className="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          {children}
-        </main>
+      <body className="min-h-full flex flex-col overflow-x-hidden">
+        <SettingsProvider>
+          <Header />
+          <main className="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            {children}
+          </main>
+        </SettingsProvider>
       </body>
     </html>
   );

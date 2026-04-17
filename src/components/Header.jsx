@@ -1,5 +1,7 @@
 import Link from 'next/link';
-import { BookOpen, Search, Settings } from 'lucide-react'; 
+import { BookOpen, Search, SearchIcon, Settings } from 'lucide-react'; 
+import Setting from './Setting';
+import Searchbar from './Searchbar';
 
 const Header = () => {
   return (
@@ -27,29 +29,16 @@ const Header = () => {
             >
               Surah List
             </Link>
-            <Link 
-              href="/search" 
-              className="flex items-center gap-1 text-sm font-medium text-gray-800 hover:text-emerald-600 transition-colors"
-            >
-              <Search className="h-4 w-4" />
-              Search
-            </Link>
+           <Searchbar />
           </nav>
 
           {/* Action Buttons */}
-          <div className="flex items-center gap-4">
-            <button 
-              className="p-2 text-gray-800 hover:bg-gray-100 rounded-full transition-all"
-              title="Settings"
-            >
-              <Settings className="h-5 w-5" />
-            </button>
+          <div className="flex items-center gap-4 h-full">
+            <Setting />
             
             {/* Mobile Menu Button (Placeholder for functionality) */}
             <button className="md:hidden p-2 text-gray-600">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-              </svg>
+              <Searchbar />
             </button>
           </div>
 
