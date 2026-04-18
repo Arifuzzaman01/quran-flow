@@ -11,6 +11,8 @@ export default async function SurahPage({ params }) {
   const { id } = await params;
   const surah = await getSurahDetails(id);
 
+  
+
   if (!surah) {
     return <div className="p-10 text-center">Surah is Loading...</div>;
   }

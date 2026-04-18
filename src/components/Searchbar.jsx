@@ -142,7 +142,7 @@ const Searchbar = () => {
               <div
                 key={index}
                 onClick={() => {
-                  router.push(`/surah/${item.surahId}#verse-${item.verseId}`);
+                 router.push(`/surah/${item.surahId}#verse-${item.verseId}`);
                   setSearchTerm("");
                   setResults([]);
                   setIsMobileSearchOpen(false);
